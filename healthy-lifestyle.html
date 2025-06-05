@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintain Your Healthy Lifestyle - BMI Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --light-bg: #fff;
+            --dark-bg: #222;
+            --dark-text: #eee;
+            --gradient-start: #FFF59D; /* Light yellow */
+            --gradient-end: #FFEB3B; /* Slightly darker yellow */
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #555555;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--gradient-start);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        h1 {
+            font-family: 'Bangers', cursive;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            -webkit-text-stroke: 1px black;
+            text-stroke: 1px black;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .tips-list {
+            counter-reset: tip-counter;
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .tip-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .tip-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tip-number {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            display: block;
+            font-family: 'Bangers', cursive;
+        }
+        
+        .tip-content {
+            font-size: 1.1em;
+        }
+        
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-button:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .conclusion {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Maintain Your Healthy Lifestyle</h1>
+        
+        <div class="intro">
+            <p>Congratulations on maintaining a healthy weight! Here are 10 simple tips to help you continue your healthy lifestyle and feel your best every day.</p>
+        </div>
+        
+        <ul class="tips-list">
+            <li class="tip-item">
+                <span class="tip-number">1. Stay Active Every Day</span>
+                <p class="tip-content">Aim for at least 30 minutes of physical activity most days of the week. Whether it's walking, cycling, dancing, or sports, staying active keeps your body in balance.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">2. Mix Up Your Exercise</span>
+                <p class="tip-content">Include both cardio (running, swimming) and strength training (bodyweight exercises, light weights) to keep things fun and challenge your body in different ways.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">3. Eat Balanced Meals</span>
+                <p class="tip-content">Fill your plate with a variety of fruits, vegetables, lean proteins, whole grains, and healthy fats. This will help you stay full, energized, and maintain a healthy weight.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">4. Watch Portion Sizes</span>
+                <p class="tip-content">Instead of restricting foods, focus on eating the right portions. Pay attention to your hunger cues and try to stop eating when you're comfortably full, not stuffed.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">5. Stay Hydrated</span>
+                <p class="tip-content">Drinking plenty of water throughout the day keeps your body working well, helps with digestion, and can prevent overeating when you're not actually hungry.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">6. Avoid Skipping Meals</span>
+                <p class="tip-content">Eating regularly helps keep your metabolism steady and your energy levels stable. Skipping meals can lead to overeating later on, so try to eat 3 balanced meals a day with healthy snacks.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">7. Get Enough Sleep</span>
+                <p class="tip-content">Aiming for around 7-9 hours of sleep each night helps regulate your metabolism, improve mood, and make it easier to stay active and energized.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">8. Limit Junk Food</span>
+                <p class="tip-content">It's okay to have a treat now and then, but try to limit highly processed foods (like chips, candy, and sugary drinks) that can lead to weight gain or lack of energy.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">9. Practice Mindful Eating</span>
+                <p class="tip-content">Take your time to enjoy your meals and pay attention to how food makes you feel. Mindful eating helps you tune into your body's needs and avoid overeating.</p>
+            </li>
+            
+            <li class="tip-item">
+                <span class="tip-number">10. Find Activities You Enjoy</span>
+                <p class="tip-content">Exercise doesn't have to be a chore! Find activities you enjoy, like playing sports, hiking, yoga, or even group fitness classes, so staying fit feels more fun than a task.</p>
+            </li>
+        </ul>
+        
+        <div class="conclusion">
+            <p>Remember, maintaining a healthy lifestyle is about balance, not perfection. Small, consistent habits are the key to long-term success!</p>
+        </div>
+        
+        <a href="index.html" class="back-button">← Back to BMI Calculator</a>
+    </div>
+</body>
+</html>

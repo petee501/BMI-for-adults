@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator For Adults</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <i class="fas fa-weight"></i> BMI Pro
+            </div>
+            
+            <div class="navbar-links">
+                <!-- Affiliate Links Dropdown -->
+                <div class="dropdown">
+                    <button class="dropbtn">Best Home Gym Equipment <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="gym-equipment.html">Gym Equipment</a>
+                        <a href="equipment.html">Men's Equipment</a>
+                        <a href="equipment-women.html">Women's Equipment</a>
+                    </div>
+                </div>
+                
+                <!-- Health Tips Dropdown -->
+                <div class="dropdown">
+                    <button class="dropbtn">Health Tips <i class="fas fa-caret-down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="healthy-lifestyle.html">Healthy Lifestyle</a>
+                        <a href="weight-gain-tips.html">Weight Gain Tips</a>
+                    </div>
+                </div>
+                
+                <!-- Refresh Button -->
+                <button class="refresh-btn" onclick="location.reload();">
+                    <i class="fas fa-sync-alt"></i> Refresh
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+    </button>
+
+    <div class="title-container">
+        <h1 class="fun-title">BMI Calculator For Adults</h1>
+        <p class="disclaimer">Not for the faint hearted</p>
+    </div>
+
+    <div class="calculator">
+        <div class="input-group">
+            <label for="gender"><i class="fas fa-user"></i> Gender:</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-ruler-vertical"></i> Height:</label>
+            <select id="height-unit">
+                <option value="cm">Centimeters (cm)</option>
+                <option value="ft-in">Feet & Inches</option>
+            </select>
+        </div>
+
+        <div class="input-group" id="height-cm-input">
+            <input type="number" id="height-cm" placeholder="e.g., 175">
+            <span>cm</span>
+        </div>
+
+        <div class="input-group" id="height-ft-in-input" style="display: none;">
+            <input type="number" id="height-ft" placeholder="ft"> ft
+            <input type="number" id="height-in" placeholder="in"> in
+        </div>
+
+        <div class="input-group">
+            <label><i class="fas fa-weight-hanging"></i> Weight:</label>
+            <select id="weight-unit">
+                <option value="kg">Kilograms (kg)</option>
+                <option value="lbs">Pounds (lbs)</option>
+                <option value="st-lbs">Stones & Pounds</option>
+            </select>
+        </div>
+
+        <div class="input-group" id="weight-kg-input">
+            <input type="number" id="weight-kg" placeholder="e.g., 70">
+            <span>kg</span>
+        </div>
+
+        <div class="input-group" id="weight-lbs-input" style="display: none;">
+            <input type="number" id="weight-lbs" placeholder="e.g., 154">
+            <span>lbs</span>
+        </div>
+
+        <div class="input-group" id="weight-st-lbs-input" style="display: none;">
+            <input type="number" id="weight-st" placeholder="st"> st
+            <input type="number" id="weight-lbs-part" placeholder="lbs"> lbs
+        </div>
+
+        <button id="calculate-btn">Press at Own Risk! <img src="images/funny-scale.svg" alt="Funny scale" class="button-icon"></button>
+    </div>
+
+    <div id="result-section" style="display: none;">
+        <h2><i class="fas fa-chart-line"></i> Your Result</h2>
+        <p>Your BMI is: <span id="bmi-value"></span></p>
+        <p>This means you are: <span id="bmi-category"></span></p>
+        <div id="funny-content">
+            <img id="funny-image" src="" alt="Funny BMI reaction">
+            <p id="funny-comment"></p>
+            <p id="trifecta-recommendation"></p>
+        </div>
+        <div id="joke-container" class="joke-container">
+            <p id="joke-text" class="joke-text"></p>
+        </div>
+        <div id="audio-container" style="display: none;">
+            <div id="youtube-player" style="display: none;"></div>
+        </div>
+        <div id="affiliate-links">
+            <h3><i class="fas fa-link"></i> Check these out:</h3>
+            <ul id="links-list">
+                <!-- Affiliate links will be added here -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="complaints-container">
+        <a href="#" id="complaints-link">Please click here for complaints</a>
+    </div>
+
+    <!-- Complaints Modal -->
+    <div id="complaints-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="complaints-image-container">
+                <img src="images/middle finger n.webp" alt="Response to complaints" class="complaints-image">
+            </div>
+        </div>
+    </div>
+
+    <!-- Ad Space at Bottom -->
+    <div class="ad-space ad-space-bottom">
+        <a href="mailto:Motivebate@Yahoo.com" class="ad-link">
+            <div class="ad-content">
+                <h3>Advertising Space</h3>
+                <p>Your Ad Here</p>
+                <span class="contact-info">Contact Us</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- YouTube API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+<footer-btn></footer-btn>
+<script>
+    // 定义自定义元素
+    class FooterBtn extends HTMLElement {
+        constructor() {
+            super();
+            // 创建 Shadow DOM
+            const shadow = this.attachShadow({ mode: 'open' });
+            // 创建组件的HTML结构
+            const wrapper = document.createElement('div');
+            wrapper.setAttribute('class', 'wrapper');
+            // 添加一些内容到组件中
+            wrapper.innerHTML = `
+                <div class="page-footer">
+                    <div class="tooltip-dialog">Not an official Manus website nor endorsed by Manus. Content may contain inaccuracies; double-check before use. Do not submit passwords, credit cards, or personal information.</div>
+                    <div class="footer-close-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <g clip-path="url(#clip0_5850_97234)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.733398 8.00104C0.733398 3.98777 3.9868 0.734375 8.00006 0.734375C12.0133 0.734375 15.2667 3.98777 15.2667 8.00104C15.2667 12.0143 12.0133 15.2677 8.00006 15.2677C3.9868 15.2677 0.733398 12.0143 0.733398 8.00104Z" fill="white"/>
+                        <path d="M1.2334 8.00104C1.2334 4.26391 4.26294 1.23438 8.00006 1.23438C11.7372 1.23438 14.7667 4.26391 14.7667 8.00104C14.7667 11.7382 11.7372 14.7677 8.00006 14.7677C4.26294 14.7677 1.2334 11.7382 1.2334 8.00104Z" stroke="black" stroke-opacity="0.14" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5.57576 5.57613C5.81007 5.34181 6.18997 5.34181 6.42429 5.57613L8.00002 7.15186L9.57576 5.57613C9.81007 5.34181 10.19 5.34181 10.4243 5.57613C10.6586 5.81044 10.6586 6.19034 10.4243 6.42465L8.84855 8.00039L10.4243 9.57613C10.6586 9.81044 10.6586 10.1903 10.4243 10.4247C10.19 10.659 9.81007 10.659 9.57576 10.4247L8.00002 8.84892L6.42429 10.4247C6.18997 10.659 5.81007 10.659 5.57576 10.4247C5.34145 10.1903 5.34145 9.81044 5.57576 9.57613L7.1515 8.00039L5.57576 6.42465C5.34145 6.19034 5.34145 5.81044 5.57576 5.57613Z" fill="#858481"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_5850_97234">
+                        <rect width="16" height="16" fill="white"/>
+                        </clipPath>
+                        </defs>
+                        </svg>
+                    </div>
+                    <div class="footer-bg">
+                        <div class="tooltip-box">
+                            <div class="tooltip-desc">This user-generated website was created with AI. Use with caution.</div>
+                            <span
+                                class="tooltip-icon"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                                    <g clip-path="url(#clip0_4345_83044)">
+                                        <path
+                                            d="M6 8V6M6 4H6.005M11 6C11 8.76142 8.76142 11 6 11C3.23858 11 1 8.76142 1 6C1 3.23858 3.23858 1 6 1C8.76142 1 11 3.23858 11 6Z"
+                                            stroke="#858481"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0_4345_83044">
+                                            <rect width="12" height="12" fill="white" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+                            </span>
+                        </div>
+                    </div>
+                    <a href="https://manus.im/app?from=space" target="_blank" class="footer-button">
+                        <span class="footer-logo">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                                <path
+                                    d="M13.2251 16.9379C14.4717 16.147 15.3336 11.9052 15.144 10.6421C15.144 10.6421 14.9464 9.96396 14.4643 9.96394C13.9821 9.96391 13.7815 10.4719 13.7815 10.4719C13.7815 10.4719 13.6546 10.9409 13.4555 11.5313C13.1474 12.4447 13.0178 13.5718 12.2143 13.8571C11.4107 14.1425 10.6071 13.8725 10.6071 13.8725C11.1535 15.9448 11.9785 17.7288 13.2251 16.9379Z"
+                                    fill="white"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M7.04826 9.17689C6.59029 9.22824 6.34906 9.40136 6.26768 9.48274C5.94625 9.80417 5.78554 10.1256 5.78554 10.2863C5.78554 10.447 5.40745 9.53393 5.32437 9.44837C5.07703 9.19366 5.083 8.78667 5.33771 8.53933C5.69527 8.19212 6.28003 7.96925 6.90502 7.89918C7.55323 7.82651 8.3219 7.9075 9.09971 8.25205C10.0075 8.65415 10.4937 9.50199 10.6773 10.2768C10.7705 10.6701 10.7943 11.0743 10.7466 11.4426C10.7002 11.8002 10.5781 12.1826 10.3242 12.4736C9.79525 13.0799 9.01508 13.0116 8.593 12.9221C8.35518 12.8716 8.14542 12.7975 7.99786 12.738C7.92303 12.7079 7.86158 12.6804 7.81747 12.6597C7.79535 12.6493 7.77743 12.6406 7.7642 12.6341C7.75757 12.6308 7.75211 12.628 7.74786 12.6259L7.7424 12.6231L7.74037 12.622L7.73915 12.6214C7.73915 12.6214 7.7388 12.6212 8.03568 12.051L7.7388 12.6212C7.42389 12.4573 7.30152 12.069 7.46548 11.7541C7.62912 11.4398 8.01612 11.3173 8.3307 11.4798M8.3307 11.4798L8.33145 11.4802L8.3307 11.4798ZM8.3307 11.4798L8.33531 11.4822C8.34052 11.4847 8.3498 11.4893 8.36271 11.4953C8.38864 11.5075 8.42852 11.5254 8.4788 11.5457C8.58146 11.5871 8.71705 11.6341 8.85982 11.6644C9.19892 11.7363 9.32081 11.668 9.3554 11.6284C9.38325 11.5965 9.44396 11.4899 9.47154 11.2773C9.49771 11.0755 9.48663 10.8281 9.42625 10.5733C9.30267 10.0519 9.00685 9.61712 8.57899 9.42759C8.02117 9.1805 7.48301 9.12815 7.04826 9.17689"
+                                    fill="white"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M2.79812 2.53348C2.64176 2.85224 2.7734 3.2374 3.09216 3.39376C3.55 3.61834 3.94731 3.83979 4.34068 4.28331C4.57627 4.54892 4.98258 4.57326 5.2482 4.33767C5.51381 4.10208 5.53815 3.69577 5.30256 3.43016C4.742 2.79815 4.16499 2.48794 3.65839 2.23944C3.33963 2.08308 2.95448 2.21473 2.79812 2.53348Z"
+                                    fill="white"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M6.27275 0.662519C5.92831 0.748629 5.71889 1.09766 5.805 1.4421C5.86516 1.68274 5.92127 1.8885 5.97263 2.07686C6.07093 2.43738 6.15185 2.73415 6.21054 3.08969C6.26837 3.43999 6.59923 3.67708 6.94952 3.61926C7.29982 3.56143 7.53692 3.23058 7.47909 2.88028C7.40972 2.46006 7.3017 2.06246 7.19328 1.66338C7.14526 1.48666 7.09717 1.30966 7.05233 1.13027C6.96622 0.785827 6.61719 0.57641 6.27275 0.662519Z"
+                                    fill="white"
+                                />
+                                <path
+                                    d="M8.99979 3.21456C9.16051 2.57171 9.32122 2.08956 9.61377 1.60742"
+                                    stroke="white"
+                                    stroke-width="1.28571"
+                                    stroke-miterlimit="10"
+                                    stroke-linecap="round"
+                                />
+                                <path
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M11.3613 6.26832C12.6366 6.52316 12.6368 6.52221 12.6368 6.52221L12.637 6.52126L12.6373 6.51931L12.6381 6.51527L12.6396 6.50658C12.6407 6.50054 12.6418 6.49395 12.6429 6.48687C12.6452 6.47271 12.6476 6.45641 12.65 6.43816C12.6548 6.40191 12.6596 6.35662 12.6628 6.30419C12.6689 6.20315 12.6702 6.05635 12.6443 5.88608C12.5954 5.56354 12.4075 4.95215 11.7455 4.59774L11.6146 4.52762L11.4715 4.48801L11.1424 5.7144C11.4358 5.8715 11.3613 6.26832 11.3613 6.26832ZM11.1573 7.07742L11.3613 6.26832L12.6366 6.52316L12.6296 6.56049L12.4237 7.37732C12.3841 7.57807 12.3789 7.69285 12.381 7.75349C12.3828 7.80284 12.3892 7.81904 12.3924 7.82698L12.3927 7.8279C12.4008 7.84841 12.4216 7.89289 12.4977 8.00832C12.5287 8.05537 12.561 8.10252 12.6021 8.1626C12.613 8.1785 12.6245 8.19531 12.6367 8.21327C12.6919 8.29416 12.7565 8.38953 12.825 8.49621C13.2527 9.16281 13.2947 9.80259 13.2925 10.2126C13.2924 10.2186 13.2924 10.2246 13.2923 10.2305C13.3435 10.2481 13.3978 10.2658 13.4555 10.2841C13.4745 10.2902 13.4997 10.2982 13.5262 10.3065C13.5634 10.3183 13.6031 10.3308 13.6314 10.3399C13.6872 10.3577 13.7584 10.381 13.8272 10.4067C13.8751 10.4245 13.9211 10.4423 13.9644 10.4603C14.0059 10.4775 14.0566 10.4995 14.1099 10.5264C14.1513 10.5473 14.2186 10.5831 14.2948 10.6359L14.9647 10.9242L14.955 11.7823C14.9493 12.2868 14.7463 12.8187 14.6023 13.148C14.4436 13.5111 14.2339 13.8983 14.0408 14.1556C13.7712 14.515 13.4657 14.8945 13.0981 15.1372C12.8815 15.2802 12.6198 15.394 12.3111 15.4313C12.0361 15.4645 11.7981 15.4277 11.6232 15.3851L11.5717 15.3745C11.5199 15.3639 11.4456 15.3486 11.3553 15.3298C11.1748 15.2922 10.9287 15.2404 10.6678 15.1837C10.1867 15.0793 9.53471 14.9331 9.22715 14.8311L9.20492 14.8237L9.18296 14.8155C9.04655 14.7649 8.81591 14.7081 8.43387 14.621C8.41077 14.6157 8.38722 14.6103 8.36328 14.6049C8.03371 14.5299 7.6281 14.4376 7.24401 14.3212C6.8462 14.2008 6.35418 14.0216 5.9364 13.7296C5.4979 13.4232 4.99936 12.8829 4.9716 12.0723C4.96744 11.951 4.97023 11.8337 4.97774 11.7224C4.78027 11.5084 4.61454 11.2286 4.53078 10.8703C4.44918 10.5212 4.49431 10.2118 4.55156 9.99459C4.60897 9.7768 4.69617 9.58643 4.76904 9.44413C4.79364 9.3961 4.81915 9.34874 4.8446 9.30298C4.60356 9.22692 4.3313 9.13294 4.06631 9.01999C3.72023 8.87246 3.22918 8.62908 2.86258 8.2362C2.66514 8.0246 2.4584 7.72132 2.37481 7.3248C2.28733 6.90985 2.36002 6.51171 2.53036 6.1708C2.94502 5.34093 3.73706 5.04773 4.44152 5.02237C5.07762 4.99946 5.75449 5.17745 6.36097 5.39016C6.91355 5.58397 7.70443 5.94444 8.3763 6.25842C8.5976 5.89554 8.88932 5.48549 9.16548 5.15432L9.22034 5.08866C9.49649 4.75749 9.75608 4.45213 9.95996 4.24825C10.1638 4.04438 10.3215 3.93693 10.4078 3.89331C10.4941 3.84969 10.5091 3.86969 10.5091 3.86969C10.5091 3.86969 10.5291 3.88969 10.5091 3.96969C10.4891 4.04969 10.4291 4.18969 10.3091 4.42969C10.1891 4.66969 10.0091 5.00969 9.82909 5.42969C9.64909 5.84969 9.46909 6.34969 9.36909 6.88969C9.26909 7.42969 9.24909 8.00969 9.42909 8.54969C9.60909 9.08969 9.98909 9.58969 10.5691 9.86969C11.1491 10.1497 11.9291 10.2097 12.5891 9.96969C13.2491 9.72969 13.7891 9.18969 14.0691 8.56969C14.3491 7.94969 14.3691 7.24969 14.2291 6.70969C14.0891 6.16969 13.7891 5.78969 13.5091 5.52969C13.2291 5.26969 12.9691 5.12969 12.8091 5.04969C12.6491 4.96969 12.5891 4.94969 12.5891 4.94969C12.5891 4.94969 12.6491 4.96969 12.8091 5.04969C12.9691 5.12969 13.2291 5.26969 13.5091 5.52969C13.7891 5.78969 14.0891 6.16969 14.2291 6.70969C14.3691 7.24969 14.3491 7.94969 14.0691 8.56969C13.7891 9.18969 13.2491 9.72969 12.5891 9.96969C11.9291 10.2097 11.1491 10.1497 10.5691 9.86969C9.98909 9.58969 9.60909 9.08969 9.42909 8.54969C9.24909 8.00969 9.26909 7.42969 9.36909 6.88969C9.46909 6.34969 9.64909 5.84969 9.82909 5.42969C10.0091 5.00969 10.1891 4.66969 10.3091 4.42969C10.4291 4.18969 10.4891 4.04969 10.5091 3.96969C10.5291 3.88969 10.5091 3.86969 10.5091 3.86969C10.5091 3.86969 10.4941 3.84969 10.4078 3.89331C10.3215 3.93693 10.1638 4.04438 9.95996 4.24825C9.75608 4.45213 9.49649 4.75749 9.22034 5.08866L9.16548 5.15432C8.88932 5.48549 8.5976 5.89554 8.3763 6.25842C7.70443 5.94444 6.91355 5.58397 6.36097 5.39016C5.75449 5.17745 5.07762 4.99946 4.44152 5.02237C3.73706 5.04773 2.94502 5.34093 2.53036 6.1708C2.36002 6.51171 2.28733 6.90985 2.37481 7.3248C2.4584 7.72132 2.66514 8.0246 2.86258 8.2362C3.22918 8.62908 3.72023 8.87246 4.06631 9.01999C4.3313 9.13294 4.60356 9.22692 4.8446 9.30298C4.81915 9.34874 4.79364 9.3961 4.76904 9.44413C4.69617 9.58643 4.60897 9.7768 4.55156 9.99459C4.49431 10.2118 4.44918 10.5212 4.53078 10.8703C4.61454 11.2286 4.78027 11.5084 4.97774 11.7224C4.97023 11.8337 4.96744 11.951 4.9716 12.0723C4.99936 12.8829 5.4979 13.4232 5.9364 13.7296C6.35418 14.0216 6.8462 14.2008 7.24401 14.3212C7.6281 14.4376 8.03371 14.5299 8.36328 14.6049C8.38722 14.6103 8.41077 14.6157 8.43387 14.621C8.81591 14.7081 9.04655 14.7649 9.18296 14.8155L9.20492 14.8237L9.22715 14.8311C9.53471 14.9331 10.1867 15.0793 10.6678 15.1837C10.9287 15.2404 11.1748 15.2922 11.3553 15.3298C11.4456 15.3486 11.5199 15.3639 11.5717 15.3745L11.6232 15.3851C11.7981 15.4277 12.0361 15.4645 12.3111 15.4313C12.6198 15.394 12.8815 15.2802 13.0981 15.1372C13.4657 14.8945 13.7712 14.515 14.0408 14.1556C14.2339 13.8983 14.4436 13.5111 14.6023 13.148C14.7463 12.8187 14.9493 12.2868 14.955 11.7823L14.9647 10.9242L14.2948 10.6359C14.2186 10.5831 14.1513 10.5473 14.1099 10.5264C14.0566 10.4995 14.0059 10.4775 13.9644 10.4603C13.9211 10.4423 13.8751 10.4245 13.8272 10.4067C13.7584 10.381 13.6872 10.3577 13.6314 10.3399C13.6031 10.3308 13.5634 10.3183 13.5262 10.3065C13.4997 10.2982 13.4745 10.2902 13.4555 10.2841C13.3978 10.2658 13.3435 10.2481 13.2923 10.2305C13.2924 10.2246 13.2924 10.2186 13.2925 10.2126C13.2947 9.80259 13.2527 9.16281 12.825 8.49621C12.7565 8.38953 12.6919 8.29416 12.6367 8.21327C12.6245 8.19531 12.613 8.1785 12.6021 8.1626C12.561 8.10252 12.5287 8.05537 12.4977 8.00832C12.4216 7.89289 12.4008 7.84841 12.3927 7.8279L12.3924 7.82698C12.3892 7.81904 12.3828 7.80284 12.381 7.75349C12.3789 7.69285 12.3841 7.57807 12.4237 7.37732L12.6296 6.56049L12.6366 6.52316L11.3613 6.26832L11.1573 7.07742Z"
+                                    fill="white"
+                                />
+                            </svg>
+                        </span>
+                        <span class="footer-text">Made with Manus</span>
+                    </a>
+                </div>
+            `;
+            // 添加样式
+            const style = document.createElement('style');
+            style.textContent = `
+                .wrapper {
+                    position: relative;
+                    width: 100%;
+                    height: 0;
+                }
+                .page-footer {
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    z-index: 100;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                }
+                .footer-bg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    height: 36px;
+                    background-color: rgba(0, 0, 0, 0.6);
+                    backdrop-filter: blur(5px);
+                }
+                .tooltip-box {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    margin-right: 8px;
+                }
+                .tooltip-desc {
+                    font-size: 12px;
+                    color: #858481;
+                }
+                .tooltip-icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+                .tooltip-dialog {
+                    position: absolute;
+                    bottom: 44px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 90%;
+                    max-width: 320px;
+                    padding: 12px;
+                    background-color: #1F1F1F;
+                    border-radius: 8px;
+                    color: #FFFFFF;
+                    font-size: 12px;
+                    line-height: 1.5;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                    z-index: 101;
+                    display: none;
+                }
+                .tooltip-icon:hover + .tooltip-dialog,
+                .tooltip-dialog:hover {
+                    display: block;
+                }
+                .footer-button {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 0 12px;
+                    height: 36px;
+                    background-color: #FF0000;
+                    color: white;
+                    text-decoration: none;
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+                .footer-logo {
+                    display: flex;
+                    align-items: center;
+                }
+                .footer-text {
+                    white-space: nowrap;
+                }
+                .footer-close-btn {
+                    position: absolute;
+                    top: -20px;
+                    right: 12px;
+                    cursor: pointer;
+                    display: none;
+                }
+            `;
+            // 将样式和内容添加到 shadow DOM
+            shadow.appendChild(style);
+            shadow.appendChild(wrapper);
+            // 添加事件监听器
+            const closeBtn = wrapper.querySelector('.footer-close-btn');
+            closeBtn.addEventListener('click', () => {
+                this.style.display = 'none';
+            });
+        }
+    }
+    // 注册自定义元素
+    customElements.define('footer-btn', FooterBtn);
+</script>
+</body>
+</html>

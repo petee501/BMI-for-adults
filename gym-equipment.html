@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Home Gym Equipment - BMI Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff0000;
+            --secondary-color: #007bff;
+            --text-color: #333;
+            --light-bg: #fff;
+            --dark-bg: #222;
+            --dark-text: #eee;
+            --gradient-start: #FFF59D; /* Light yellow */
+            --gradient-end: #FFEB3B; /* Slightly darker yellow */
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #555555;
+            color: var(--text-color);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 30px;
+            background: var(--gradient-start);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+        }
+        
+        h1 {
+            font-family: 'Bangers', cursive;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            -webkit-text-stroke: 1px black;
+            text-stroke: 1px black;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .equipment-item {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .equipment-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .equipment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .equipment-item:hover .equipment-image img {
+            transform: scale(1.05);
+        }
+        
+        .equipment-details {
+            padding: 20px;
+        }
+        
+        .equipment-details h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .equipment-details p {
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+        
+        .buy-button {
+            display: inline-block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .buy-button:hover {
+            background-color: #cc0000;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 12px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-button:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        .conclusion {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-weight: bold;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Best Home Gym Equipment</h1>
+        
+        <div class="intro">
+            <p>Building your home gym doesn't have to be complicated or expensive. We've curated the best equipment options for all fitness levels that will help you achieve your health goals without leaving home. Whether you're looking to build muscle, lose weight, or improve your overall fitness, these products are perfect for creating an effective home workout space.</p>
+        </div>
+        
+        <div class="equipment-grid">
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/dumbbells/image_0.png" alt="Dumbbells">
+                </div>
+                <div class="equipment-details">
+                    <h2>Dumbbells</h2>
+                    <p>Perfect for progressive overload and building strength at home. Essential for beginners and advanced users looking to add muscle mass with versatile exercises.</p>
+                    <a href="https://amzn.to/3Fc6NEC" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+            
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/bench/image_0.png" alt="Weight Bench">
+                </div>
+                <div class="equipment-details">
+                    <h2>Weight Bench</h2>
+                    <p>Versatile equipment for a complete home gym setup. Enables various strength exercises and proper form for chest, shoulder, and arm workouts.</p>
+                    <a href="https://amzn.to/4kzrngZ" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+            
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/ab_roller/image_0.png" alt="Ab Roller">
+                </div>
+                <div class="equipment-details">
+                    <h2>Ab Roller</h2>
+                    <p>Effective core strengthening tool that targets abs, arms, and back muscles. Compact design makes it perfect for home use and storage.</p>
+                    <a href="https://amzn.to/4kh31Je" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+            
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/resistance_bands/image_0.png" alt="Resistance Bands">
+                </div>
+                <div class="equipment-details">
+                    <h2>Resistance Bands</h2>
+                    <p>Versatile and portable resistance training for full-body workouts. Perfect for all fitness levels with adjustable resistance and minimal joint stress.</p>
+                    <a href="https://amzn.to/4mtxANr" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+            
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/pilates/image_0.png" alt="Pilates Equipment">
+                </div>
+                <div class="equipment-details">
+                    <h2>Pilates Equipment</h2>
+                    <p>Great for building core strength and lean muscle with low-impact exercises. Improves flexibility, posture, and body awareness for all fitness levels.</p>
+                    <a href="https://amzn.to/44OsqoO" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+            
+            <div class="equipment-item">
+                <div class="equipment-image">
+                    <img src="images/equipment/exercise_bike/image_0.png" alt="Exercise Bike">
+                </div>
+                <div class="equipment-details">
+                    <h2>Exercise Bike</h2>
+                    <p>Excellent for building lower body strength and cardiovascular health. Low-impact cardio option that's perfect for all fitness levels and sustainable workouts.</p>
+                    <a href="https://amzn.to/43xBjkc" target="_blank" class="buy-button">Check Price on Amazon</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="conclusion">
+            <p>Combining these equipment options with proper nutrition and consistent workouts is the key to achieving your fitness goals. Start with one or two pieces that match your current goals, and build your home gym over time.</p>
+        </div>
+        
+        <a href="index.html" class="back-button">← Back to BMI Calculator</a>
+    </div>
+</body>
+</html>
